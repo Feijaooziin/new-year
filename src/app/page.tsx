@@ -87,8 +87,9 @@ export default function Home() {
       </footer> */}
 
       <motion.footer
-        initial="hidden"
-        animate="visible"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4 }}
         className="px-6 py-8 text-center text-xl leading-relaxed text-zinc-400 space-y-4"
       >
         <h1 className="text-3xl font-bold text-zinc-200">Oi Gata!</h1>
