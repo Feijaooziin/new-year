@@ -13,12 +13,13 @@ export default function Home() {
     "/photos/6.jpg",
   ];
 
-  const footerContainer = {
+  const footerContainer: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        delayChildren: 1, // ⬅ espera antes de começar
+        staggerChildren: 0.6, // intervalo entre parágrafos
       },
     },
   };
@@ -68,45 +69,6 @@ export default function Home() {
         <PhotoCarousel images={photos} />
       </section>
 
-      {/* <footer className="px-6 py-8 text-center text-xl leading-relaxed text-zinc-400 space-y-4">
-        <h1 className="text-3xl font-bold">Oi Gata!</h1>
-
-        <p>
-          Chegamos ao fim de mais um ano, e quando olho para trás, vejo o quanto
-          ele foi intenso para nós. Não foi um ano fácil — tivemos desafios,
-          dias pesados, incertezas e momentos em que tudo parecia mais difícil
-          do que deveria ser. Mas, mesmo assim, seguimos em frente. Juntos.
-        </p>
-
-        <p>
-          Aprendemos que superar não é nunca cair, mas escolher levantar lado a
-          lado. Em cada dificuldade, você esteve ali, sendo apoio, força e amor.
-          E foi assim, passo a passo, que conseguimos transformar um ano difícil
-          em um ano de crescimento.
-        </p>
-
-        <p>
-          Construímos muitas coisas: sonhos mais fortes, uma parceria ainda mais
-          sólida, aprendizados que vamos levar para a vida inteira e, acima de
-          tudo, um amor mais maduro e verdadeiro. Tudo o que conquistamos só fez
-          sentido porque fizemos juntos.
-        </p>
-
-        <p>
-          Sou imensamente grato por você, pela nossa história e por não soltar
-          minha mão nem nos momentos mais duros (Lá ele kkkk).
-        </p>
-
-        <p>
-          Que o próximo ano venha com mais leveza, mais sorrisos e novos sonhos
-          — e que, aconteça o que acontecer, continuemos assim: unidos, fortes e
-          cheios de amor.
-        </p>
-
-        <p className="font-medium text-zinc-300">
-          Te amo. Que venham novos começos, juntos. ✨❤️
-        </p>
-      </footer> */}
       <motion.footer
         variants={footerContainer}
         initial="hidden"
