@@ -1,7 +1,7 @@
 "use client";
 import { PhotoCarousel } from "@/components/photo-carousel";
 import { Countdown } from "@/components/countdown";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export default function Home() {
   const photos = [
@@ -12,6 +12,28 @@ export default function Home() {
     "/photos/5.jpg",
     "/photos/6.jpg",
   ];
+
+  const footerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const footerItem: Variants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  };
 
   return (
     <main className="min-h-screen flex flex-col bg-gradient-to-b from-black via-zinc-900 to-black text-white">
@@ -85,50 +107,55 @@ export default function Home() {
           Te amo. Que venham novos começos, juntos. ✨❤️
         </p>
       </footer> */}
-
       <motion.footer
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.4 }}
+        variants={footerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
         className="px-6 py-8 text-center text-xl leading-relaxed text-zinc-400 space-y-4"
       >
-        <h1 className="text-3xl font-bold text-zinc-200">Oi Gata!</h1>
+        <motion.h1
+          variants={footerItem}
+          className="text-3xl font-bold text-zinc-200"
+        >
+          Oi Gata!
+        </motion.h1>
 
-        <p>
+        <motion.p variants={footerItem}>
           Chegamos ao fim de mais um ano, e quando olho para trás, vejo o quanto
           ele foi intenso para nós. Não foi um ano fácil — tivemos desafios,
           dias pesados, incertezas e momentos em que tudo parecia mais difícil
           do que deveria ser. Mas, mesmo assim, seguimos em frente. Juntos.
-        </p>
+        </motion.p>
 
-        <p>
+        <motion.p variants={footerItem}>
           Aprendemos que superar não é nunca cair, mas escolher levantar lado a
           lado. Em cada dificuldade, você esteve ali, sendo apoio, força e amor.
           E foi assim, passo a passo, que conseguimos transformar um ano difícil
           em um ano de crescimento.
-        </p>
+        </motion.p>
 
-        <p>
+        <motion.p variants={footerItem}>
           Construímos muitas coisas: sonhos mais fortes, uma parceria ainda mais
           sólida, aprendizados que vamos levar para a vida inteira e, acima de
           tudo, um amor mais maduro e verdadeiro. Tudo o que conquistamos só fez
           sentido porque fizemos juntos.
-        </p>
+        </motion.p>
 
-        <p>
+        <motion.p variants={footerItem}>
           Sou imensamente grato por você, pela nossa história e por não soltar
           minha mão nem nos momentos mais duros (Lá ele kkkk).
-        </p>
+        </motion.p>
 
-        <p>
+        <motion.p variants={footerItem}>
           Que o próximo ano venha com mais leveza, mais sorrisos e novos sonhos
           — e que, aconteça o que acontecer, continuemos assim: unidos, fortes e
           cheios de amor.
-        </p>
+        </motion.p>
 
-        <p className="font-medium text-zinc-300">
+        <motion.p variants={footerItem} className="font-medium text-zinc-300">
           Te amo. Que venham novos começos, juntos. ✨❤️
-        </p>
+        </motion.p>
       </motion.footer>
     </main>
   );
